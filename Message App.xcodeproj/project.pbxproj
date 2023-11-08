@@ -13,6 +13,7 @@
 		D8F49E082AFC5442000F763C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F49E062AFC5442000F763C /* Main.storyboard */; };
 		D8F49E0A2AFC5445000F763C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F49E092AFC5445000F763C /* Assets.xcassets */; };
 		D8F49E0D2AFC5445000F763C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F49E0B2AFC5445000F763C /* LaunchScreen.storyboard */; };
+		D8F49E162AFC556B000F763C /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F49E152AFC556B000F763C /* MainScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D8F49E092AFC5445000F763C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8F49E0C2AFC5445000F763C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8F49E0E2AFC5445000F763C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8F49E152AFC556B000F763C /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,30 @@
 			children = (
 				D8F49E002AFC5442000F763C /* AppDelegate.swift */,
 				D8F49E022AFC5442000F763C /* SceneDelegate.swift */,
-				D8F49E042AFC5442000F763C /* ViewController.swift */,
+				D8F49E142AFC5553000F763C /* Main Screen */,
 				D8F49E062AFC5442000F763C /* Main.storyboard */,
 				D8F49E092AFC5445000F763C /* Assets.xcassets */,
 				D8F49E0B2AFC5445000F763C /* LaunchScreen.storyboard */,
 				D8F49E0E2AFC5445000F763C /* Info.plist */,
 			);
 			path = "Message App";
+			sourceTree = "<group>";
+		};
+		D8F49E142AFC5553000F763C /* Main Screen */ = {
+			isa = PBXGroup;
+			children = (
+				D8F49E042AFC5442000F763C /* ViewController.swift */,
+				D8F49E172AFC557B000F763C /* Views */,
+			);
+			path = "Main Screen";
+			sourceTree = "<group>";
+		};
+		D8F49E172AFC557B000F763C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D8F49E152AFC556B000F763C /* MainScreenView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +160,7 @@
 				D8F49E052AFC5442000F763C /* ViewController.swift in Sources */,
 				D8F49E012AFC5442000F763C /* AppDelegate.swift in Sources */,
 				D8F49E032AFC5442000F763C /* SceneDelegate.swift in Sources */,
+				D8F49E162AFC556B000F763C /* MainScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
