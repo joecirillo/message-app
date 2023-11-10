@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50EFA1C22AFDD16A001625A6 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EFA1C12AFDD169001625A6 /* CreateAccountViewController.swift */; };
+		50EFA1C42AFDD17F001625A6 /* CreateAccountScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EFA1C32AFDD17F001625A6 /* CreateAccountScreenView.swift */; };
 		D849DB932AFDA94100270513 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB922AFDA94100270513 /* User.swift */; };
 		D849DB962AFDB80400270513 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB952AFDB80400270513 /* ChatView.swift */; };
 		D849DB982AFDB82500270513 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB972AFDB82500270513 /* ChatViewController.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50EFA1C12AFDD169001625A6 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		50EFA1C32AFDD17F001625A6 /* CreateAccountScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountScreenView.swift; sourceTree = "<group>"; };
 		D849DB922AFDA94100270513 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D849DB952AFDB80400270513 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		D849DB972AFDB82500270513 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50EFA1C02AFDD122001625A6 /* Create Account */ = {
+			isa = PBXGroup;
+			children = (
+				50EFA1C12AFDD169001625A6 /* CreateAccountViewController.swift */,
+				50EFA1C32AFDD17F001625A6 /* CreateAccountScreenView.swift */,
+			);
+			path = "Create Account";
+			sourceTree = "<group>";
+		};
 		D849DB942AFDA94700270513 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +167,7 @@
 				D8F49E022AFC5442000F763C /* SceneDelegate.swift */,
 				D849DB9E2AFDB9E800270513 /* Progress Indicator */,
 				D8F49E142AFC5553000F763C /* Main Screen */,
+				50EFA1C02AFDD122001625A6 /* Create Account */,
 				D8F49E062AFC5442000F763C /* Main.storyboard */,
 				D8F49E092AFC5445000F763C /* Assets.xcassets */,
 				D8F49E0B2AFC5445000F763C /* LaunchScreen.storyboard */,
@@ -286,6 +300,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50EFA1C22AFDD16A001625A6 /* CreateAccountViewController.swift in Sources */,
+				50EFA1C42AFDD17F001625A6 /* CreateAccountScreenView.swift in Sources */,
 				D849DB982AFDB82500270513 /* ChatViewController.swift in Sources */,
 				D849DB9B2AFDB9A700270513 /* ProgressSpinnerViewController.swift in Sources */,
 				D8F49E052AFC5442000F763C /* ViewController.swift in Sources */,
