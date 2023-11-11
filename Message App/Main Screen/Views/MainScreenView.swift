@@ -8,10 +8,11 @@
 import UIKit
 
 class MainScreenView: UIView {
-    var scrollView = UIScrollView()
-    var userNameTextField = UITextField()
-    var passwordTextField = UITextField()
-    var logInButton = UIButton()
+    var scrollView: UIScrollView!
+    var userNameTextField: UITextField!
+    var passwordTextField: UITextField!
+    var floatingButtonNewChat: UIButton!
+    var tableViewChats: UITableView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,7 +21,7 @@ class MainScreenView: UIView {
         setupScrollView()
         setupUserName()
         setupPassword()
-        
+        setupFloatingButtonNewChat()
         initConstrains()
     }
     
@@ -49,11 +50,20 @@ class MainScreenView: UIView {
         passwordTextField.layer.borderWidth = 1.0
         scrollView.addSubview(passwordTextField)
     }
-    func setupLogInButton(){
-        logInButton = UIButton()
-        logInButton.setTitle("Log In", for: .normal)
-        logInButton.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(logInButton)
+    func setupFloatingButtonNewChat(){
+        floatingButtonNewChat = UIButton(type: .system)
+        floatingButtonNewChat.setTitle("", for: .normal)
+        floatingButtonNewChat.setImage(UIImage(systemName: "note.text.badge.plus")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        floatingButtonNewChat.contentHorizontalAlignment = .fill
+        floatingButtonNewChat.contentVerticalAlignment = .fill
+        floatingButtonNewChat.imageView?.contentMode = .scaleAspectFit
+        floatingButtonNewChat.layer.cornerRadius = 16
+        floatingButtonNewChat.imageView?.layer.shadowOffset = .zero
+        floatingButtonNewChat.imageView?.layer.shadowRadius = 0.8
+        floatingButtonNewChat.imageView?.layer.shadowOpacity = 0.7
+        floatingButtonNewChat.imageView?.clipsToBounds = true
+        floatingButtonNewChat.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(floatingButtonNewChat)
     }
     
     func initConstrains(){
@@ -62,15 +72,17 @@ class MainScreenView: UIView {
             scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             scrollView.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor),
             scrollView.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor),
-            
-            userNameTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            userNameTextField.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 32),
-            
-            passwordTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            passwordTextField.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 16),
-            
-            logInButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            logInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16),
+
+            tableViewChats.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8),
+            tableViewChats.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8),
+            tableViewChats.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
+            tableViewChats.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -16),
+
+            floatingButtonNewChat.widthAnchor.constraint(equalToConstant: 48),
+            floatingButtonNewChat.heightAnchor.constraint(equalToConstant: 48),
+            floatingButtonNewChat.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16),
+            floatingButtonNewChat.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+                        
         ])
     }
     

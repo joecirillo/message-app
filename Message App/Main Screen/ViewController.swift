@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     let mainScreenView = MainScreenView()
+    var activeChats = [Chat]()
     
     override func loadView(){
         view = mainScreenView
@@ -21,6 +22,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // test
         // Do any additional setup after loading the view.
+        title = "Chats"
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        view.bringSubviewToFront(mainScreenView.floatingButtonNewChat)
     }
     @objc func onLogInButtonTapped(){
         if let user = mainScreenView.userNameTextField.text,
