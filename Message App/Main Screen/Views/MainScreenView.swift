@@ -18,7 +18,16 @@ class MainScreenView: UIView {
         
         setupLabelText()
         setupFloatingButtonNewChat()
-        initConstrains()
+        setupTableViewChats()
+
+//        if self.tableViewChats.numberOfSections > 0 {
+//            tableViewChats.scrollToRow(//MARK: numberOfSections could be cause if there is an issue
+//                at: IndexPath(row: self.tableViewChats.numberOfSections-1, section: 0),
+//                at: UITableView.ScrollPosition.bottom,
+//                animated: false);
+//        }
+        
+        initConstraints()
     }
 
     func setupLabelText(){
@@ -27,6 +36,14 @@ class MainScreenView: UIView {
         labelText.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(labelText)
     }
+    
+    func setupTableViewChats(){
+        tableViewChats = UITableView()
+        tableViewChats.register(ChatsTableViewCell.self, forCellReuseIdentifier: Configs.tableViewChatsID)
+        tableViewChats.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(tableViewChats)
+    }
+    
     func setupFloatingButtonNewChat(){
         floatingButtonNewChat = UIButton(type: .system)
         floatingButtonNewChat.setTitle("", for: .normal)
@@ -43,7 +60,7 @@ class MainScreenView: UIView {
         self.addSubview(floatingButtonNewChat)
     }
     
-    func initConstrains(){
+    func initConstraints(){
         NSLayoutConstraint.activate([
             labelText.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
             labelText.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),

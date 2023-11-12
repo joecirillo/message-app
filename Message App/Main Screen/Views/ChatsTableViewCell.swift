@@ -12,6 +12,7 @@ class ChatsTableViewCell: UITableViewCell {
     var wrapperCellView: UIView!
     var labelFriend: UILabel!
     var labelMessage: UILabel!
+    var labelDateTime: UILabel!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -19,6 +20,7 @@ class ChatsTableViewCell: UITableViewCell {
         setupWrapperCellView()
         setupLabelFriend()
         setupLabelMessage()
+        setupLabelDateTime()
         
         initConstraints()
     }
@@ -55,6 +57,13 @@ class ChatsTableViewCell: UITableViewCell {
         wrapperCellView.addSubview(labelMessage)
     }
     
+    func setupLabelDateTime(){
+        labelDateTime = UILabel()
+        labelDateTime.font = UIFont.boldSystemFont(ofSize: 14)
+        labelDateTime.translatesAutoresizingMaskIntoConstraints = false
+        wrapperCellView.addSubview(labelDateTime)
+    }
+    
     func initConstraints(){
         NSLayoutConstraint.activate([
             wrapperCellView.topAnchor.constraint(equalTo: self.topAnchor,constant: 10),
@@ -70,7 +79,12 @@ class ChatsTableViewCell: UITableViewCell {
             labelMessage.topAnchor.constraint(equalTo: labelFriend.bottomAnchor, constant: 2),
             labelMessage.leadingAnchor.constraint(equalTo: labelFriend.leadingAnchor),
             labelMessage.heightAnchor.constraint(equalToConstant: 16),
-            labelMessage.widthAnchor.constraint(lessThanOrEqualTo: labelFriend.widthAnchor),
+            labelMessage.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor),
+            
+            labelDateTime.topAnchor.constraint(equalTo: labelMessage.bottomAnchor, constant: 2),
+            labelDateTime.leadingAnchor.constraint(equalTo: labelFriend.leadingAnchor),
+            labelDateTime.heightAnchor.constraint(equalToConstant: 16),
+            labelDateTime.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor),
             
             wrapperCellView.heightAnchor.constraint(equalToConstant: 72)
         ])

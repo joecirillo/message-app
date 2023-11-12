@@ -12,7 +12,8 @@ import FirebaseFirestoreSwift
 
 class NewChatViewController: UIViewController {
     var currentUser:FirebaseAuth.User?
-    
+    let database = Firestore.firestore()
+    let childProgressView = ProgressSpinnerViewController()
     let newChatScreen = NewChatView()
     
     override func loadView() {
@@ -28,20 +29,51 @@ class NewChatViewController: UIViewController {
     
     //MARK: on add button tapped....
     @objc func onAddButtonTapped(){
-        let name = newChatScreen.textFieldName.text
+        let email = newChatScreen.textFieldEmail.text
         
-        if name == "" {
+        if email == "" {
             //alert..
         }else{
-            let friend = User(name: name!)
-            saveContactToFireStore(user: user)
+            //MARK: need to get user from given email and set that as userChatting in new Chat
+            //let friend = getFriendFromFirebase()
+            //let chat = Chat(messages: [Message](), userChatting: friend)
+            //saveChatToFireStore(chat: chat)
         }
         
     }
     
     //MARK: logic to add a contact to Firestore...
-    func saveContactToFireStore(user: User){
-        
+    func saveChatToFireStore(chat: Chat){
+        if let userEmail = currentUser!.email{
+            let collectionChats = database
+                .collection("users")
+                .document(userEmail)
+                .collection("chats")
+            showActivityIndicator()
+            do{
+                try collectionChats.addDocument(from: chat, completion: {(error) in
+                    if error == nil{
+                        self.navigationController?.popViewController(animated: true)
+                        self.hideActivityIndicator()
+                    }
+                })
+            }catch{
+                print("Error adding document!")
+            }
+        }
     }
-        
+}
+
+extension NewChatViewController:ProgressSpinnerDelegate{
+    func showActivityIndicator(){
+        addChild(childProgressView)
+        view.addSubview(childProgressView.view)
+        childProgressView.didMove(toParent: self)
+    }
+    
+    func hideActivityIndicator(){
+        childProgressView.willMove(toParent: nil)
+        childProgressView.view.removeFromSuperview()
+        childProgressView.removeFromParent()
+    }
 }

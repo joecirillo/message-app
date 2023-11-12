@@ -8,11 +8,11 @@
 import Foundation
 
 struct Chat: Codable{
-    var messages: [String]
-    var user: User
+    var messages: [Message]
+    var userChatting: User
     
-    init(messages: [String], user: User) {
+    init(messages: [Message], userChatting: User) {
         self.messages = messages
-        self.user = user
+        self.userChatting = userChatting
     }
 }

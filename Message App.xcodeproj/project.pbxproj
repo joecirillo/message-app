@@ -24,6 +24,7 @@
 		831191CB2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191CA2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift */; };
 		831191CE2B011F2C007FE1FF /* NewChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191CD2B011F2C007FE1FF /* NewChatView.swift */; };
 		831191D02B011F8A007FE1FF /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191CF2B011F8A007FE1FF /* NewChatViewController.swift */; };
+		831191D22B019207007FE1FF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191D12B019207007FE1FF /* Message.swift */; };
 		D849DB932AFDA94100270513 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB922AFDA94100270513 /* User.swift */; };
 		D849DB962AFDB80400270513 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB952AFDB80400270513 /* ChatView.swift */; };
 		D849DB982AFDB82500270513 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB972AFDB82500270513 /* ChatViewController.swift */; };
@@ -53,6 +54,7 @@
 		831191CA2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		831191CD2B011F2C007FE1FF /* NewChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatView.swift; sourceTree = "<group>"; };
 		831191CF2B011F8A007FE1FF /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
+		831191D12B019207007FE1FF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		D849DB922AFDA94100270513 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D849DB952AFDB80400270513 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		D849DB972AFDB82500270513 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				D849DB922AFDA94100270513 /* User.swift */,
 				831191C32B003AC1007FE1FF /* Chat.swift */,
+				831191D12B019207007FE1FF /* Message.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				831191BE2B00376C007FE1FF /* RegisterViewController.swift in Sources */,
 				D8F49E032AFC5442000F763C /* SceneDelegate.swift in Sources */,
 				831191CB2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift in Sources */,
+				831191D22B019207007FE1FF /* Message.swift in Sources */,
 				831191CE2B011F2C007FE1FF /* NewChatView.swift in Sources */,
 				831191C82B003CC6007FE1FF /* ChatsTableViewCell.swift in Sources */,
 				D849DB932AFDA94100270513 /* User.swift in Sources */,

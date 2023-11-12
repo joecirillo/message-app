@@ -15,8 +15,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewChatsID, for: indexPath) as! ChatsTableViewCell
-        cell.labelFriend.text = activeChats[indexPath.row].user.name
-        cell.labelMessage.text = activeChats[indexPath.row].messages.first
+        cell.labelFriend.text = activeChats[indexPath.row].userChatting.name
+        //MARK: need to determine if last or first message is the most recent->
+        cell.labelMessage.text = activeChats[indexPath.row].messages.first?.text
+        cell.labelDateTime.text = activeChats[indexPath.row].messages.last?.text
         return cell
     }
 }

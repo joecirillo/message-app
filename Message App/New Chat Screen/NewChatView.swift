@@ -8,25 +8,25 @@
 import UIKit
 
 class NewChatView: UIView {
-    var textFieldName: UITextField!
+    var textFieldEmail: UITextField!
     var buttonAdd: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
         
-        setupTextFieldName()
+        setupTextFieldEmail()
         setupButtonAdd()
         
         initConstraints()
     }
     
-    func setupTextFieldName(){
-        textFieldName = UITextField()
-        textFieldName.placeholder = "Name"
-        textFieldName.borderStyle = .roundedRect
-        textFieldName.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(textFieldName)
+    func setupTextFieldEmail(){
+        textFieldEmail = UITextField()
+        textFieldEmail.placeholder = "Name"
+        textFieldEmail.borderStyle = .roundedRect
+        textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(textFieldEmail)
     }
     
     func setupButtonAdd(){
@@ -40,11 +40,11 @@ class NewChatView: UIView {
     
     func initConstraints(){
         NSLayoutConstraint.activate([
-            textFieldName.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
-            textFieldName.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            textFieldName.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            textFieldEmail.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+            textFieldEmail.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            textFieldEmail.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
-            buttonAdd.topAnchor.constraint(equalTo: textFieldName.bottomAnchor, constant: 8),
+            buttonAdd.topAnchor.constraint(equalTo: textFieldEmail.bottomAnchor, constant: 8),
             buttonAdd.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             buttonAdd.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
         ])
