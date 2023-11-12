@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateAccountScreenView: UIView {
+class RegisterScreenView: UIView {
     var scrollView = UIScrollView()
     var userNameTextField = UITextField()
     var passwordTextField = UITextField()
