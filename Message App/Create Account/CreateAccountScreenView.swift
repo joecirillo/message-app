@@ -10,6 +10,7 @@ import UIKit
 class CreateAccountScreenView: UIView {
     var scrollView = UIScrollView()
     var userNameTextField = UITextField()
+    var userEmailTextField: UITextField!
     var passwordTextField = UITextField()
     var passwordConfirmTextField = UITextField()
     var createAccountButton = UIButton()
@@ -19,6 +20,7 @@ class CreateAccountScreenView: UIView {
         self.backgroundColor = .systemBackground
         
         setupScrollView()
+        setupUserEmail()
         setupUserName()
         passwordConfirm()
         setupPassword()
@@ -41,6 +43,16 @@ class CreateAccountScreenView: UIView {
         userNameTextField.layer.cornerRadius = 10.0
         userNameTextField.layer.borderWidth = 1.0
         scrollView.addSubview(userNameTextField)
+    }
+    func setupUserEmail(){
+        userEmailTextField = UITextField()
+        userEmailTextField.placeholder = "Email"
+        userEmailTextField.translatesAutoresizingMaskIntoConstraints = false
+        userEmailTextField.borderStyle = .roundedRect
+        userEmailTextField.layer.borderColor = UIColor.gray.cgColor
+        userEmailTextField.layer.cornerRadius = 10.0
+        userEmailTextField.layer.borderWidth = 1.0
+        scrollView.addSubview(userEmailTextField)
     }
     func setupPassword(){
         passwordTextField = UITextField()
@@ -66,6 +78,10 @@ class CreateAccountScreenView: UIView {
         createAccountButton = UIButton()
         createAccountButton.setTitle("Create Account", for: .normal)
         createAccountButton.translatesAutoresizingMaskIntoConstraints = false
+        createAccountButton.backgroundColor = UIColor.systemGreen
+        createAccountButton.setTitleColor(UIColor.white, for: .normal)
+        createAccountButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        createAccountButton.layer.cornerRadius = 10.0
         self.addSubview(createAccountButton)
     }
     
@@ -78,15 +94,28 @@ class CreateAccountScreenView: UIView {
             
             userNameTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             userNameTextField.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 32),
+            userNameTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 50),
+            userNameTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -50),
+            
+            userEmailTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            userEmailTextField.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 16),
+            userEmailTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 50),
+            userEmailTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             
             passwordTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            passwordTextField.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 16),
+            passwordTextField.topAnchor.constraint(equalTo: userEmailTextField.bottomAnchor, constant: 16),
+            passwordTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 50),
+            passwordTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             
             passwordConfirmTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             passwordConfirmTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16),
+            passwordConfirmTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 50),
+            passwordConfirmTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             
             createAccountButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             createAccountButton.topAnchor.constraint(equalTo: passwordConfirmTextField.bottomAnchor, constant: 16),
+            createAccountButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 50),
+            createAccountButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -50),
         ])
     }
     

@@ -14,6 +14,8 @@
 		D849DB982AFDB82500270513 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB972AFDB82500270513 /* ChatViewController.swift */; };
 		D849DB9B2AFDB9A700270513 /* ProgressSpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB9A2AFDB9A700270513 /* ProgressSpinnerViewController.swift */; };
 		D849DB9D2AFDB9D900270513 /* ProgressSpinnerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB9C2AFDB9D900270513 /* ProgressSpinnerDelegate.swift */; };
+		D85280852B0049A40004FE5E /* CreateAccountProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85280842B0049A40004FE5E /* CreateAccountProgressIndicator.swift */; };
+		D85280872B004A0D0004FE5E /* CreateAccountFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85280862B004A0D0004FE5E /* CreateAccountFirebaseManager.swift */; };
 		D8F49E012AFC5442000F763C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F49E002AFC5442000F763C /* AppDelegate.swift */; };
 		D8F49E032AFC5442000F763C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F49E022AFC5442000F763C /* SceneDelegate.swift */; };
 		D8F49E052AFC5442000F763C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F49E042AFC5442000F763C /* ViewController.swift */; };
@@ -59,6 +61,8 @@
 		D849DB972AFDB82500270513 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D849DB9A2AFDB9A700270513 /* ProgressSpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerViewController.swift; sourceTree = "<group>"; };
 		D849DB9C2AFDB9D900270513 /* ProgressSpinnerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerDelegate.swift; sourceTree = "<group>"; };
+		D85280842B0049A40004FE5E /* CreateAccountProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountProgressIndicator.swift; sourceTree = "<group>"; };
+		D85280862B004A0D0004FE5E /* CreateAccountFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountFirebaseManager.swift; sourceTree = "<group>"; };
 		D8F49DFD2AFC5442000F763C /* Message App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Message App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F49E002AFC5442000F763C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F49E022AFC5442000F763C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				50EFA1C12AFDD169001625A6 /* CreateAccountViewController.swift */,
+				D85280862B004A0D0004FE5E /* CreateAccountFirebaseManager.swift */,
+				D85280842B0049A40004FE5E /* CreateAccountProgressIndicator.swift */,
 				50EFA1C32AFDD17F001625A6 /* CreateAccountScreenView.swift */,
 			);
 			path = "Create Account";
@@ -306,6 +312,8 @@
 				D849DB9B2AFDB9A700270513 /* ProgressSpinnerViewController.swift in Sources */,
 				D8F49E052AFC5442000F763C /* ViewController.swift in Sources */,
 				D849DB962AFDB80400270513 /* ChatView.swift in Sources */,
+				D85280852B0049A40004FE5E /* CreateAccountProgressIndicator.swift in Sources */,
+				D85280872B004A0D0004FE5E /* CreateAccountFirebaseManager.swift in Sources */,
 				D8F49E012AFC5442000F763C /* AppDelegate.swift in Sources */,
 				D8F49E032AFC5442000F763C /* SceneDelegate.swift in Sources */,
 				D849DB932AFDA94100270513 /* User.swift in Sources */,

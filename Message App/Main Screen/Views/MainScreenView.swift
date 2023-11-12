@@ -8,27 +8,24 @@
 import UIKit
 
 class MainScreenView: UIView {
-    var scrollView = UIScrollView()
     var userNameTextField = UITextField()
     var passwordTextField = UITextField()
     var logInButton = UIButton()
+    var signUpButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .white
         
-        setupScrollView()
         setupUserName()
         setupPassword()
+        setupLogInButton()
+        setupSignUpButton()
         
-        initConstrains()
+        initConstraints()
     }
     
-    func setupScrollView(){
-        scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(scrollView)
-    }
+    
     func setupUserName(){
         userNameTextField = UITextField()
         userNameTextField.placeholder = "Name"
@@ -37,7 +34,7 @@ class MainScreenView: UIView {
         userNameTextField.layer.borderColor = UIColor.gray.cgColor
         userNameTextField.layer.cornerRadius = 10.0
         userNameTextField.layer.borderWidth = 1.0
-        scrollView.addSubview(userNameTextField)
+        self.addSubview(userNameTextField)
     }
     func setupPassword(){
         passwordTextField = UITextField()
@@ -47,30 +44,53 @@ class MainScreenView: UIView {
         passwordTextField.layer.borderColor = UIColor.gray.cgColor
         passwordTextField.layer.cornerRadius = 10.0
         passwordTextField.layer.borderWidth = 1.0
-        scrollView.addSubview(passwordTextField)
+        self.addSubview(passwordTextField)
     }
+     
     func setupLogInButton(){
         logInButton = UIButton()
         logInButton.setTitle("Log In", for: .normal)
         logInButton.translatesAutoresizingMaskIntoConstraints = false
+        logInButton.backgroundColor = UIColor.systemGreen
+        logInButton.setTitleColor(UIColor.white, for: .normal)
+        logInButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        logInButton.layer.cornerRadius = 10.0
         self.addSubview(logInButton)
     }
     
-    func initConstrains(){
+    func setupSignUpButton(){
+        signUpButton = UIButton()
+        signUpButton.setTitle("Sign Up", for: .normal)
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
+        signUpButton.backgroundColor = UIColor.systemGreen
+        signUpButton.setTitleColor(UIColor.white, for: .normal)
+        signUpButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        signUpButton.layer.cornerRadius = 10.0
+        self.addSubview(signUpButton)
+    }
+    
+    func initConstraints(){
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.widthAnchor.constraint(equalTo: self.safeAreaLayoutGuide.widthAnchor),
-            scrollView.heightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.heightAnchor),
             
-            userNameTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            userNameTextField.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 32),
+            userNameTextField.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            userNameTextField.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: -16),
+            userNameTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 50),
+            userNameTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             
-            passwordTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            passwordTextField.topAnchor.constraint(equalTo: userNameTextField.bottomAnchor, constant: 16),
+            passwordTextField.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            passwordTextField.bottomAnchor.constraint(equalTo: logInButton.topAnchor, constant: -16),
+            passwordTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             
-            logInButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            logInButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 16),
+            logInButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            logInButton.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -16),
+            logInButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 50),
+            logInButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -50),
+            
+            signUpButton.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor),
+            signUpButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -32),
+            signUpButton.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 50),
+            signUpButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -50)
+            
         ])
     }
     
