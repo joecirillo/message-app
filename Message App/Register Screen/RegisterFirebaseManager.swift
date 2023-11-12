@@ -11,10 +11,13 @@ import FirebaseAuth
 extension RegisterViewController{
     
     func registerNewAccount(){
+        showActivityIndicator()
         //MARK: create a Firebase user with email and password...
         if let name = registerView.textFieldName.text,
            let email = registerView.textFieldEmail.text,
-           let password = registerView.textFieldPassword.text{
+           let password = registerView.textFieldPassword.text,
+           let confirmPassword = registerView.textFieldConfirmPassword.text,
+           password == confirmPassword {
             //Validations....
             Auth.auth().createUser(withEmail: email, password: password, completion: {result, error in
                 if error == nil{
@@ -34,6 +37,7 @@ extension RegisterViewController{
         changeRequest?.displayName = name
         changeRequest?.commitChanges(completion: {(error) in
             if error == nil{
+                self.hideActivityIndicator()
                 //MARK: the profile update is successful...
                 self.navigationController?.popViewController(animated: true)
             }else{

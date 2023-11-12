@@ -21,6 +21,9 @@
 		831191C42B003AC1007FE1FF /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191C32B003AC1007FE1FF /* Chat.swift */; };
 		831191C62B003C2C007FE1FF /* ChatsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191C52B003C2C007FE1FF /* ChatsTableViewManager.swift */; };
 		831191C82B003CC6007FE1FF /* ChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191C72B003CC6007FE1FF /* ChatsTableViewCell.swift */; };
+		831191CB2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191CA2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift */; };
+		831191CE2B011F2C007FE1FF /* NewChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191CD2B011F2C007FE1FF /* NewChatView.swift */; };
+		831191D02B011F8A007FE1FF /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191CF2B011F8A007FE1FF /* NewChatViewController.swift */; };
 		D849DB932AFDA94100270513 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB922AFDA94100270513 /* User.swift */; };
 		D849DB962AFDB80400270513 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB952AFDB80400270513 /* ChatView.swift */; };
 		D849DB982AFDB82500270513 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB972AFDB82500270513 /* ChatViewController.swift */; };
@@ -47,6 +50,9 @@
 		831191C32B003AC1007FE1FF /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		831191C52B003C2C007FE1FF /* ChatsTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewManager.swift; sourceTree = "<group>"; };
 		831191C72B003CC6007FE1FF /* ChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewCell.swift; sourceTree = "<group>"; };
+		831191CA2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProgressIndicatorManager.swift; sourceTree = "<group>"; };
+		831191CD2B011F2C007FE1FF /* NewChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatView.swift; sourceTree = "<group>"; };
+		831191CF2B011F8A007FE1FF /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
 		D849DB922AFDA94100270513 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D849DB952AFDB80400270513 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		D849DB972AFDB82500270513 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -94,8 +100,18 @@
 				831191BB2B00372C007FE1FF /* RegisterView.swift */,
 				831191BD2B00376C007FE1FF /* RegisterViewController.swift */,
 				831191BF2B00380D007FE1FF /* RegisterFirebaseManager.swift */,
+				831191CA2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift */,
 			);
 			path = "Register Screen";
+			sourceTree = "<group>";
+		};
+		831191CC2B011F05007FE1FF /* New Chat Screen */ = {
+			isa = PBXGroup;
+			children = (
+				831191CD2B011F2C007FE1FF /* NewChatView.swift */,
+				831191CF2B011F8A007FE1FF /* NewChatViewController.swift */,
+			);
+			path = "New Chat Screen";
 			sourceTree = "<group>";
 		};
 		D849DB942AFDA94700270513 /* Data Models */ = {
@@ -144,6 +160,7 @@
 		D8F49DFF2AFC5442000F763C /* Message App */ = {
 			isa = PBXGroup;
 			children = (
+				831191CC2B011F05007FE1FF /* New Chat Screen */,
 				831191BA2B003709007FE1FF /* Register Screen */,
 				831191B82B000F6D007FE1FF /* Configs.swift */,
 				D8F49E002AFC5442000F763C /* AppDelegate.swift */,
@@ -165,8 +182,8 @@
 		D8F49E142AFC5553000F763C /* Main Screen */ = {
 			isa = PBXGroup;
 			children = (
-				D8F49E042AFC5442000F763C /* ViewController.swift */,
 				D8F49E172AFC557B000F763C /* Views */,
+				D8F49E042AFC5442000F763C /* ViewController.swift */,
 				831191C12B003A67007FE1FF /* RightBarButtonManager.swift */,
 				831191C52B003C2C007FE1FF /* ChatsTableViewManager.swift */,
 			);
@@ -274,10 +291,13 @@
 				D849DB9B2AFDB9A700270513 /* ProgressSpinnerViewController.swift in Sources */,
 				D8F49E052AFC5442000F763C /* ViewController.swift in Sources */,
 				831191B92B000F6D007FE1FF /* Configs.swift in Sources */,
+				831191D02B011F8A007FE1FF /* NewChatViewController.swift in Sources */,
 				D849DB962AFDB80400270513 /* ChatView.swift in Sources */,
 				D8F49E012AFC5442000F763C /* AppDelegate.swift in Sources */,
 				831191BE2B00376C007FE1FF /* RegisterViewController.swift in Sources */,
 				D8F49E032AFC5442000F763C /* SceneDelegate.swift in Sources */,
+				831191CB2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift in Sources */,
+				831191CE2B011F2C007FE1FF /* NewChatView.swift in Sources */,
 				831191C82B003CC6007FE1FF /* ChatsTableViewCell.swift in Sources */,
 				D849DB932AFDA94100270513 /* User.swift in Sources */,
 				D849DB9D2AFDB9D900270513 /* ProgressSpinnerDelegate.swift in Sources */,

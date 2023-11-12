@@ -9,10 +9,10 @@ import Foundation
 
 struct Chat: Codable{
     var messages: [String]
-    var users: [User]
+    var user: User
     
-    init(messages: [String], users: [User]) {
+    init(messages: [String], user: User) {
         self.messages = messages
-        self.users = users
+        self.user = user
     }
 }

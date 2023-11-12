@@ -14,10 +14,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewContactsID, for: indexPath) as! ChatsTableViewCell
-        cell.labelName.text = activeChats[indexPath.row].name
-        cell.labelEmail.text = activeChats[indexPath.row].email
-        cell.labelPhone.text = "\(activeChats[indexPath.row].phone)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewChatsID, for: indexPath) as! ChatsTableViewCell
+        cell.labelFriend.text = activeChats[indexPath.row].user.name
+        cell.labelMessage.text = activeChats[indexPath.row].messages.first
         return cell
     }
 }

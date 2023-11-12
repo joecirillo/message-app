@@ -6,17 +6,50 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
 
 class ViewController: UIViewController {
-    let mainScreenView = MainScreenView()
+    let mainScreen = MainScreenView()
     var activeChats = [Chat]()
-    
+    let database = Firestore.firestore()
+    var handleAuth: AuthStateDidChangeListenerHandle?
+    var currentUser: FirebaseAuth.User?
     override func loadView(){
-        view = mainScreenView
+        view = mainScreen
+        //MARK: patching table view delegate and data source...
+        mainScreen.tableViewChats.delegate = self
+        mainScreen.tableViewChats.dataSource = self
         
-        mainScreenView.logInButton.addTarget(self, action: #selector(onLogInButtonTapped), for: .touchUpInside)
+        //MARK: removing the separator line...
+        mainScreen.tableViewChats.separatorStyle = .none
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //MARK: handling if the Authentication state is changed (sign in, sign out, register)...
+        handleAuth = Auth.auth().addStateDidChangeListener{ auth, user in
+            if user == nil{
+                //MARK: not signed in...
+                self.currentUser = nil
+                self.mainScreen.labelText.text = "Please sign in to see the notes!"
+                self.mainScreen.floatingButtonNewChat.isEnabled = false
+                self.mainScreen.floatingButtonNewChat.isHidden = true
+                
+                //MARK: Reset tableView...
+                self.activeChats.removeAll()
+                self.mainScreen.tableViewChats.reloadData()
+                self.setupRightBarButton(isLoggedin: false)
+            }else{
+                //MARK: the user is signed in...
+                self.currentUser = user
+                self.mainScreen.labelText.text = "Welcome \(user?.displayName ?? "Anonymous")!"
+                self.mainScreen.floatingButtonNewChat.isEnabled = true
+                self.mainScreen.floatingButtonNewChat.isHidden = false
+                self.setupRightBarButton(isLoggedin: true)
+            }
+        }
+    }
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -26,20 +59,9 @@ class ViewController: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        view.bringSubviewToFront(mainScreenView.floatingButtonNewChat)
+        view.bringSubviewToFront(mainScreen.floatingButtonNewChat)
     }
-    @objc func onLogInButtonTapped(){
-        if let user = mainScreenView.userNameTextField.text,
-           let password = mainScreenView.userNameTextField.text{
-            if user.isEmpty {
-                showEmptyErrorAlert()
-            } else if password.isEmpty {
-                showEmptyErrorAlert()
-            } else {
-                
-            }
-        }
-    }
+
     func showEmptyErrorAlert(){
         let alert = UIAlertController(title: "Error", message: "The inputs cannot be empty!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
