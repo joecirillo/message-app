@@ -23,7 +23,7 @@ class NewChatView: UIView {
     
     func setupTextFieldEmail(){
         textFieldEmail = UITextField()
-        textFieldEmail.placeholder = "Name"
+        textFieldEmail.placeholder = "Email"
         textFieldEmail.borderStyle = .roundedRect
         textFieldEmail.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(textFieldEmail)
