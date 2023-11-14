@@ -20,6 +20,15 @@ class MessageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = userChatting?.name
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        messageScreen.sendButton.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
+        //MARK: print(mainScreen.tableViewChats.numberOfSections)
+    }
+    @objc func sendButtonTapped(){
+        
     }
     
 
