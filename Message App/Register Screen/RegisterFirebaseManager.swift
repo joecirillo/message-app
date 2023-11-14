@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestore
 
 extension RegisterViewController{
     
@@ -23,11 +24,29 @@ extension RegisterViewController{
                 if error == nil{
                     //MARK: the user creation is successful...
                     self.setNameOfTheUserInFirebaseAuth(name: name)
+                    self.addDocumentForUser(email: email, displayName: name)
                 }else{
                     //MARK: there is a error creating the user...
                     print(error)
                 }
             })
+        }
+    }
+    
+    func addDocumentForUser(email: String, displayName: String) {
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(email)
+
+        let userData: [String: Any] = [
+            "name": displayName,
+        ]
+
+        userRef.setData(userData) { error in
+            if let error = error {
+                print("Error adding document for user: \(error.localizedDescription)")
+            } else {
+                print("Document added for user with UID: \(email)")
+            }
         }
     }
     
