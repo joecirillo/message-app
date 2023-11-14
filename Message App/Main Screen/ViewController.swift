@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     let database = Firestore.firestore()
     var handleAuth: AuthStateDidChangeListenerHandle?
     var currentUser: FirebaseAuth.User?
+    let childProgressView = ProgressSpinnerViewController()
+
     override func loadView(){
         view = mainScreen
         //MARK: patching table view delegate and data source...
@@ -31,7 +33,7 @@ class ViewController: UIViewController {
             if user == nil{
                 //MARK: not signed in...
                 self.currentUser = nil
-                self.mainScreen.labelText.text = "Please sign in to see the notes!"
+                self.mainScreen.labelText.text = "Please sign in to see the chats!"
                 self.mainScreen.floatingButtonNewChat.isEnabled = false
                 self.mainScreen.floatingButtonNewChat.isHidden = true
                 
@@ -48,7 +50,7 @@ class ViewController: UIViewController {
                 self.setupRightBarButton(isLoggedin: true)
                 
                 self.database.collection("users")
-                .document((self.currentUser?.email)!)
+                    .document((self.currentUser?.email)!)
                 .collection("chats")
                 .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
                     if let documents = querySnapshot?.documents{
@@ -66,6 +68,14 @@ class ViewController: UIViewController {
                     }
                 })
             }
+        }
+        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let details = self.activeChats[indexPath.row]
+            let messageViewController = MessageViewController()
+            messageViewController.userChatting = details.userChatting
+            
+            navigationController?.pushViewController(messageViewController, animated: true)
         }
     }
     override func viewDidLoad() {

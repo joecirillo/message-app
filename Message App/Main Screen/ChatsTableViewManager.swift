@@ -18,7 +18,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         cell.labelFriend.text = activeChats[indexPath.row].userChatting.name
         //MARK: need to determine if last or first message is the most recent->
         cell.labelMessage.text = activeChats[indexPath.row].messages.first?.text
-        cell.labelDateTime.text = activeChats[indexPath.row].messages.last?.text
+        cell.labelDateTime.text = activeChats[indexPath.row].messages.last?.dateTime.formatted()
         return cell
     }
 }

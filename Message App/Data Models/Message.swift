@@ -8,10 +8,12 @@
 import Foundation
 
 struct Message: Codable {
+    var sender: User
     var dateTime: Date
     var text: String
     
-    init(dateTime: Date, text: String) {
+    init(sender: User, dateTime: Date, text: String) {
+        self.sender = sender
         self.dateTime = dateTime
         self.text = text
     }

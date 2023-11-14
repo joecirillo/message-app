@@ -8,4 +8,5 @@
 import Foundation
 class Configs{
     static let tableViewChatsID = "tableViewChatsID"
+    static let tableViewMessagesID = "tableViewMessagesID"
 }
