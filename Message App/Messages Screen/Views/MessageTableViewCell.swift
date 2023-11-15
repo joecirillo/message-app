@@ -9,7 +9,7 @@ import UIKit
 
 class MessageTableViewCell: UITableViewCell {
     var wrapperCellView: UIView!
-    var isFriend: Bool?
+    var isSender: Bool?
     var labelMessage: UILabel!
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
@@ -54,8 +54,8 @@ class MessageTableViewCell: UITableViewCell {
             wrapperCellView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
 
             labelMessage.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 2),
-            labelMessage.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: isFriend! ? 0 : 16),
-            labelMessage.trailingAnchor.constraint(equalTo: wrapperCellView.trailingAnchor, constant: isFriend! ? 16 : 0),
+            labelMessage.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: isSender! ? 16 : 0),
+            labelMessage.trailingAnchor.constraint(equalTo: wrapperCellView.trailingAnchor, constant: isSender! ? 0 : -16),
             labelMessage.heightAnchor.constraint(equalToConstant: 16),
             labelMessage.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor, constant: 16),
 

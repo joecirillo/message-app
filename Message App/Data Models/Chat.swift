@@ -2,17 +2,18 @@
 //  Chat.swift
 //  Message App
 //
-//  Created by Christopher on 11/11/23.
+//  Created by Joe Cirillo on 11/14/23.
 //
 
 import Foundation
+import FirebaseFirestoreSwift
+
 
 struct Chat: Codable{
-    var messages: [Message]
-    var userChatting: User
+    @DocumentID var id: String?
+    var userChatting: String
     
-    init(messages: [Message], userChatting: User) {
-        self.messages = messages
+    init(userChatting: String) {
         self.userChatting = userChatting
     }
 }

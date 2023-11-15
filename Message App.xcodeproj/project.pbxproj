@@ -16,7 +16,6 @@
 		831191BE2B00376C007FE1FF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191BD2B00376C007FE1FF /* RegisterViewController.swift */; };
 		831191C02B00380D007FE1FF /* RegisterFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191BF2B00380D007FE1FF /* RegisterFirebaseManager.swift */; };
 		831191C22B003A67007FE1FF /* RightBarButtonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191C12B003A67007FE1FF /* RightBarButtonManager.swift */; };
-		831191C42B003AC1007FE1FF /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191C32B003AC1007FE1FF /* Chat.swift */; };
 		831191C62B003C2C007FE1FF /* ChatsTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191C52B003C2C007FE1FF /* ChatsTableViewManager.swift */; };
 		831191C82B003CC6007FE1FF /* ChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191C72B003CC6007FE1FF /* ChatsTableViewCell.swift */; };
 		831191CB2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191CA2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift */; };
@@ -24,13 +23,13 @@
 		831191D02B011F8A007FE1FF /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191CF2B011F8A007FE1FF /* NewChatViewController.swift */; };
 		831191D22B019207007FE1FF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191D12B019207007FE1FF /* Message.swift */; };
 		831191DC2B03E22A007FE1FF /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191DB2B03E22A007FE1FF /* MessageTableViewCell.swift */; };
-		D849DB932AFDA94100270513 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB922AFDA94100270513 /* User.swift */; };
 		D849DB962AFDB80400270513 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB952AFDB80400270513 /* MessageView.swift */; };
 		D849DB982AFDB82500270513 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB972AFDB82500270513 /* MessageViewController.swift */; };
 		D849DB9B2AFDB9A700270513 /* ProgressSpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB9A2AFDB9A700270513 /* ProgressSpinnerViewController.swift */; };
 		D849DB9D2AFDB9D900270513 /* ProgressSpinnerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB9C2AFDB9D900270513 /* ProgressSpinnerDelegate.swift */; };
 		D87015772B0423F200011CE3 /* LoginProgressIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87015762B0423F200011CE3 /* LoginProgressIndicatorManager.swift */; };
 		D87015792B0425C500011CE3 /* NewChatAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87015782B0425C500011CE3 /* NewChatAlerts.swift */; };
+		D870157B2B047B0C00011CE3 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D870157A2B047B0C00011CE3 /* Chat.swift */; };
 		D8F49E012AFC5442000F763C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F49E002AFC5442000F763C /* AppDelegate.swift */; };
 		D8F49E032AFC5442000F763C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F49E022AFC5442000F763C /* SceneDelegate.swift */; };
 		D8F49E052AFC5442000F763C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F49E042AFC5442000F763C /* ViewController.swift */; };
@@ -47,7 +46,6 @@
 		831191BD2B00376C007FE1FF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		831191BF2B00380D007FE1FF /* RegisterFirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFirebaseManager.swift; sourceTree = "<group>"; };
 		831191C12B003A67007FE1FF /* RightBarButtonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightBarButtonManager.swift; sourceTree = "<group>"; };
-		831191C32B003AC1007FE1FF /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		831191C52B003C2C007FE1FF /* ChatsTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewManager.swift; sourceTree = "<group>"; };
 		831191C72B003CC6007FE1FF /* ChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsTableViewCell.swift; sourceTree = "<group>"; };
 		831191CA2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProgressIndicatorManager.swift; sourceTree = "<group>"; };
@@ -55,13 +53,13 @@
 		831191CF2B011F8A007FE1FF /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
 		831191D12B019207007FE1FF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		831191DB2B03E22A007FE1FF /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
-		D849DB922AFDA94100270513 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D849DB952AFDB80400270513 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		D849DB972AFDB82500270513 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		D849DB9A2AFDB9A700270513 /* ProgressSpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerViewController.swift; sourceTree = "<group>"; };
 		D849DB9C2AFDB9D900270513 /* ProgressSpinnerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerDelegate.swift; sourceTree = "<group>"; };
 		D87015762B0423F200011CE3 /* LoginProgressIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProgressIndicatorManager.swift; sourceTree = "<group>"; };
 		D87015782B0425C500011CE3 /* NewChatAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatAlerts.swift; sourceTree = "<group>"; };
+		D870157A2B047B0C00011CE3 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		D8F49DFD2AFC5442000F763C /* Message App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Message App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F49E002AFC5442000F763C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F49E022AFC5442000F763C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,9 +120,8 @@
 		D849DB942AFDA94700270513 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				D849DB922AFDA94100270513 /* User.swift */,
-				831191C32B003AC1007FE1FF /* Chat.swift */,
 				831191D12B019207007FE1FF /* Message.swift */,
+				D870157A2B047B0C00011CE3 /* Chat.swift */,
 			);
 			path = "Data Models";
 			sourceTree = "<group>";
@@ -287,7 +284,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				831191C22B003A67007FE1FF /* RightBarButtonManager.swift in Sources */,
-				831191C42B003AC1007FE1FF /* Chat.swift in Sources */,
 				831191BC2B00372C007FE1FF /* RegisterView.swift in Sources */,
 				D87015792B0425C500011CE3 /* NewChatAlerts.swift in Sources */,
 				D849DB982AFDB82500270513 /* MessageViewController.swift in Sources */,
@@ -300,6 +296,7 @@
 				D849DB962AFDB80400270513 /* MessageView.swift in Sources */,
 				D8F49E012AFC5442000F763C /* AppDelegate.swift in Sources */,
 				831191BE2B00376C007FE1FF /* RegisterViewController.swift in Sources */,
+				D870157B2B047B0C00011CE3 /* Chat.swift in Sources */,
 				D8F49E032AFC5442000F763C /* SceneDelegate.swift in Sources */,
 				D87015772B0423F200011CE3 /* LoginProgressIndicatorManager.swift in Sources */,
 				831191CB2B011BE8007FE1FF /* RegisterProgressIndicatorManager.swift in Sources */,
@@ -307,7 +304,6 @@
 				831191DC2B03E22A007FE1FF /* MessageTableViewCell.swift in Sources */,
 				831191CE2B011F2C007FE1FF /* NewChatView.swift in Sources */,
 				831191C82B003CC6007FE1FF /* ChatsTableViewCell.swift in Sources */,
-				D849DB932AFDA94100270513 /* User.swift in Sources */,
 				D849DB9D2AFDB9D900270513 /* ProgressSpinnerDelegate.swift in Sources */,
 				D8F49E162AFC556B000F763C /* MainScreenView.swift in Sources */,
 			);

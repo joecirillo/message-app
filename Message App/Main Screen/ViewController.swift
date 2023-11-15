@@ -51,7 +51,7 @@ class ViewController: UIViewController {
                 
                 self.database.collection("users")
                     .document((self.currentUser?.email)!)
-                .collection("chats")
+                    .collection("chats")
                 .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
                     if let documents = querySnapshot?.documents{
                         self.activeChats.removeAll()
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
                                 print(error)
                             }
                         }
-                        self.activeChats.sort(by: {$0.userChatting.name < $1.userChatting.name})
+                 //       self.activeChats.sort(by: {$0.userChatting.name < $1.userChatting.name})
                         self.mainScreen.tableViewChats.reloadData()
                     }
                 })
@@ -73,7 +73,6 @@ class ViewController: UIViewController {
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let details = self.activeChats[indexPath.row]
             let messageViewController = MessageViewController()
-            messageViewController.userChatting = details.userChatting
             
             navigationController?.pushViewController(messageViewController, animated: true)
         }

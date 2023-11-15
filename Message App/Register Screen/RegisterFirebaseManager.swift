@@ -35,7 +35,7 @@ extension RegisterViewController{
     
     func addDocumentForUser(email: String, displayName: String) {
         let db = Firestore.firestore()
-        let userRef = db.collection("users").document(email)
+        let userRef = db.collection("users").document(email.lowercased())
 
         let userData: [String: Any] = [
             "name": displayName,
