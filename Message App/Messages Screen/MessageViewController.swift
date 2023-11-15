@@ -8,7 +8,6 @@
 import UIKit
 
 class MessageViewController: UIViewController {
-    var userChatting:User?
     let messageScreen = MessageView()
     let messages = [Message]()
     
@@ -20,7 +19,7 @@ class MessageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        title = userChatting?.name
+       // title = userChatting?.name
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -45,7 +44,7 @@ extension MessageViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: Configs.tableViewMessagesID, for: indexPath) as! MessageTableViewCell
         cell.labelMessage.text = messages[indexPath.row].text
         //MARK: need to determine if last or first message is the most recent->
-        cell.isFriend = messages[indexPath.row].sender.name == userChatting?.name
+        cell.isSender = messages[indexPath.row].isSender
         return cell
     }
 }
