@@ -19,12 +19,7 @@ class ViewController: UIViewController {
 
     override func loadView(){
         view = mainScreen
-        //MARK: patching table view delegate and data source...
-        mainScreen.tableViewChats.delegate = self
-        mainScreen.tableViewChats.dataSource = self
-        
-        //MARK: removing the separator line...
-        mainScreen.tableViewChats.separatorStyle = .none
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,18 +45,20 @@ class ViewController: UIViewController {
                 self.setupRightBarButton(isLoggedin: true)
                 
                 self.database.collection("users")
-                    .document((self.currentUser?.email)!)
+                    .document((self.currentUser?.email?.lowercased())!)
                     .collection("chats")
                 .addSnapshotListener(includeMetadataChanges: false, listener: {querySnapshot, error in
                     if let documents = querySnapshot?.documents{
                         self.activeChats.removeAll()
                         for document in documents{
                             do{
+                                print("hi")
                                 let chat = try document.data(as: Chat.self)
                                 self.activeChats.append(chat)
                             }catch{
                                 print(error)
                             }
+                            print(self.activeChats.count)
                         }
                  //       self.activeChats.sort(by: {$0.userChatting.name < $1.userChatting.name})
                         self.mainScreen.tableViewChats.reloadData()
@@ -84,6 +81,13 @@ class ViewController: UIViewController {
         title = "Chats"
         
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        //MARK: patching table view delegate and data source...
+        mainScreen.tableViewChats.delegate = self
+        mainScreen.tableViewChats.dataSource = self
+        
+        //MARK: removing the separator line...
+        mainScreen.tableViewChats.separatorStyle = .none
         
         mainScreen.floatingButtonNewChat.addTarget(self, action: #selector(newChatButtonTapped), for: .touchUpInside)
         //MARK: print(mainScreen.tableViewChats.numberOfSections)
