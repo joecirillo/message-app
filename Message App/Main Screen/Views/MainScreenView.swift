@@ -11,6 +11,7 @@ class MainScreenView: UIView {
     var labelText: UILabel!
     var floatingButtonNewChat: UIButton!
     var tableViewChats: UITableView!
+    // test comment
     
     override init(frame: CGRect) {
         super.init(frame: frame)
