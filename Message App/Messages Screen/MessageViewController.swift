@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class MessageViewController: UIViewController {
     let messageScreen = MessageView()
     let messages = [Message]()
+    var userChatting:String?
+    var currentUser:String?
     
     override func loadView() {
         view = messageScreen
@@ -19,20 +24,35 @@ class MessageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-       // title = userChatting?.name
+        title = userChatting
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        messageScreen.sendButton.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
+        messageScreen.sendButton.addTarget(self, action: #selector(onSendButtonTapped), for: .touchUpInside)
         //MARK: print(mainScreen.tableViewChats.numberOfSections)
     }
-    @objc func sendButtonTapped(){
+    
+// Controller for the user's specific chat with someone
+    //MARK: on add button tapped....
+    @objc func onSendButtonTapped(){
+        if let message = messageScreen.messageTextField.text{
+            if message == "" {
+                //alert..
+                showMessageNotEnteredAlert()
+            } else {
+                self.addMessageDocumentForChat(message: message, userChatting: self.userChatting!, currentUser: self.currentUser!)
+            }
+        }
         
     }
     
-
-// Controller for the user's specific chat with someone
-
+    func showMessageNotEnteredAlert(){
+        let alert = UIAlertController(title: "Error!", message: "User not entered. Please enter a valid user.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        self.present(alert, animated: true)
+    }
 }
 
 extension MessageViewController: UITableViewDelegate, UITableViewDataSource{

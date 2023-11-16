@@ -23,6 +23,7 @@
 		831191D02B011F8A007FE1FF /* NewChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191CF2B011F8A007FE1FF /* NewChatViewController.swift */; };
 		831191D22B019207007FE1FF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191D12B019207007FE1FF /* Message.swift */; };
 		831191DC2B03E22A007FE1FF /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831191DB2B03E22A007FE1FF /* MessageTableViewCell.swift */; };
+		8355C5822B068A89003606AB /* MessageFirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355C5812B068A89003606AB /* MessageFirestoreManager.swift */; };
 		D849DB962AFDB80400270513 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB952AFDB80400270513 /* MessageView.swift */; };
 		D849DB982AFDB82500270513 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB972AFDB82500270513 /* MessageViewController.swift */; };
 		D849DB9B2AFDB9A700270513 /* ProgressSpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849DB9A2AFDB9A700270513 /* ProgressSpinnerViewController.swift */; };
@@ -53,6 +54,7 @@
 		831191CF2B011F8A007FE1FF /* NewChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatViewController.swift; sourceTree = "<group>"; };
 		831191D12B019207007FE1FF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		831191DB2B03E22A007FE1FF /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		8355C5812B068A89003606AB /* MessageFirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFirestoreManager.swift; sourceTree = "<group>"; };
 		D849DB952AFDB80400270513 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		D849DB972AFDB82500270513 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		D849DB9A2AFDB9A700270513 /* ProgressSpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSpinnerViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				8389F50F2B03FD8600B16853 /* Views */,
 				D849DB972AFDB82500270513 /* MessageViewController.swift */,
+				8355C5812B068A89003606AB /* MessageFirestoreManager.swift */,
 			);
 			path = "Messages Screen";
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				831191C22B003A67007FE1FF /* RightBarButtonManager.swift in Sources */,
 				831191BC2B00372C007FE1FF /* RegisterView.swift in Sources */,
 				D87015792B0425C500011CE3 /* NewChatAlerts.swift in Sources */,
+				8355C5822B068A89003606AB /* MessageFirestoreManager.swift in Sources */,
 				D849DB982AFDB82500270513 /* MessageViewController.swift in Sources */,
 				831191C02B00380D007FE1FF /* RegisterFirebaseManager.swift in Sources */,
 				831191C62B003C2C007FE1FF /* ChatsTableViewManager.swift in Sources */,

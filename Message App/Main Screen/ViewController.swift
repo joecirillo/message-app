@@ -73,6 +73,8 @@ class ViewController: UIViewController {
         print(indexPath.row)
         let details = self.activeChats[indexPath.row]
         let messageViewController = MessageViewController()
+        messageViewController.userChatting = details.userChatting
+        messageViewController.currentUser = currentUser?.email
         
         navigationController?.pushViewController(messageViewController, animated: true)
     }

@@ -78,7 +78,7 @@ class NewChatViewController: UIViewController {
                 .collection("users")
                 .document(userEmail)
                 .collection("chats")
-                .document("chatting_\(chat.userChatting)")
+                .document(chat.userChatting)
             showActivityIndicator()
             do{
                 try collectionChats.setData(from: chat, completion: {(error) in
@@ -98,7 +98,7 @@ class NewChatViewController: UIViewController {
                 .collection("users")
                 .document(chat.userChatting)
                 .collection("chats")
-                .document("chatting_\(userEmail)")
+                .document(userEmail)
             showActivityIndicator()
             do{
                 var otherChat = Chat(userChatting: userEmail)
@@ -117,7 +117,7 @@ class NewChatViewController: UIViewController {
 
     }
     
-    //MARK: logic to add a contact to Firestore...
+    //MARK: logic to add a chat to Firestore...
     func saveChatToFireStore(chat: Chat){
         
         // create a new chat here
