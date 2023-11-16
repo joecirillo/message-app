@@ -52,12 +52,12 @@ class ViewController: UIViewController {
                         self.activeChats.removeAll()
                         for document in documents{
                             do{
-                                print("hi")
                                 let chat = try document.data(as: Chat.self)
                                 self.activeChats.append(chat)
                             }catch{
                                 print(error)
                             }
+                            print(self.activeChats)
                             print(self.activeChats.count)
                         }
                  //       self.activeChats.sort(by: {$0.userChatting.name < $1.userChatting.name})
@@ -66,14 +66,17 @@ class ViewController: UIViewController {
                 })
             }
         }
-        
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let details = self.activeChats[indexPath.row]
-            let messageViewController = MessageViewController()
-            
-            navigationController?.pushViewController(messageViewController, animated: true)
-        }
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+        let details = self.activeChats[indexPath.row]
+        let messageViewController = MessageViewController()
+        
+        navigationController?.pushViewController(messageViewController, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // test
@@ -103,6 +106,11 @@ class ViewController: UIViewController {
         let alert = UIAlertController(title: "Error", message: "The inputs cannot be empty!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(alert, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        Auth.auth().removeStateDidChangeListener(handleAuth!)
     }
 }
 

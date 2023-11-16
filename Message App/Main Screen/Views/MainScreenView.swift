@@ -65,10 +65,12 @@ class MainScreenView: UIView {
             labelText.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
             labelText.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             
-            tableViewChats.topAnchor.constraint(equalTo: labelText.topAnchor, constant: 8),
+            tableViewChats.topAnchor.constraint(equalTo: labelText.topAnchor, constant: 24),
             tableViewChats.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             tableViewChats.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+            tableViewChats.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -30),
 
+            
             floatingButtonNewChat.widthAnchor.constraint(equalToConstant: 48),
             floatingButtonNewChat.heightAnchor.constraint(equalToConstant: 48),
             floatingButtonNewChat.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -16),
