@@ -8,7 +8,6 @@
 import UIKit
 
 class MessageView: UIView {
-    var scrollView = UIScrollView()
     var tableViewMessages: UITableView!
     var messageTextField: UITextField!
     var sendButton: UIButton!
@@ -20,12 +19,14 @@ class MessageView: UIView {
         setupTableViewMessages()
         setupMessageTextField()
         setupSendButton()
+        /*
         if self.tableViewMessages.numberOfSections > 0 {
             tableViewMessages.scrollToRow(//MARK: numberOfSections could be cause if there is an issue
                 at: IndexPath(row: self.tableViewMessages.numberOfSections-1, section: 0),
                 at: UITableView.ScrollPosition.bottom,
                 animated: false);
         }
+         */
         
         initConstraints()
     }
@@ -45,13 +46,13 @@ class MessageView: UIView {
         messageTextField.layer.borderColor = UIColor.gray.cgColor
         messageTextField.layer.cornerRadius = 10.0
         messageTextField.layer.borderWidth = 1.0
-        scrollView.addSubview(messageTextField)
+        self.addSubview(messageTextField)
     }
     
     func setupSendButton(){
         sendButton = UIButton(type: .system)
-        //sendButton.setTitle("", for: .normal)
-        sendButton.setImage(UIImage(systemName: "npaperplane.fill")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        sendButton.setTitle("", for: .normal)
+        sendButton.setImage(UIImage(systemName: "paperplane.fill")?.withRenderingMode(.alwaysOriginal), for: .normal)
         sendButton.contentHorizontalAlignment = .fill
         sendButton.contentVerticalAlignment = .fill
         sendButton.imageView?.contentMode = .scaleAspectFit
@@ -66,13 +67,14 @@ class MessageView: UIView {
     
     func initConstraints(){
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -60),
-            
-            tableViewMessages.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8),
-            tableViewMessages.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 8),
+//
+//            scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+//            scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+//            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+//            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -60),
+//            
+            tableViewMessages.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
+            tableViewMessages.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 8),
             tableViewMessages.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             tableViewMessages.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
