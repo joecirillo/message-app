@@ -46,7 +46,11 @@ extension ViewController{
         }
     }
     
-    @objc func onSignInBarButtonTapped(){
+      @objc func onSignInBarButtonTapped() {
+            showSignInAlert()
+        }
+    
+    @objc func showSignInAlert(){
         let signInAlert = UIAlertController(
             title: "Sign In / Register",
             message: "Please sign in to continue.",
@@ -67,13 +71,26 @@ extension ViewController{
         }
         
         //MARK: Sign In Action...
-        let signInAction = UIAlertAction(title: "Sign In", style: .default, handler: {(_) in
-            if let email = signInAlert.textFields![0].text,
-               let password = signInAlert.textFields![1].text{
-                //MARK: sign-in logic for Firebase...
+        let signInAction = UIAlertAction(title: "Sign In", style: .default, handler: { [weak self] (_) in
+            guard let self = self else { return }
+
+            let emailField = signInAlert.textFields![0]
+            let passwordField = signInAlert.textFields![1]
+
+            if let email = emailField.text, !email.isEmpty,
+               let password = passwordField.text, !password.isEmpty {
                 self.signInToFirebase(email: email, password: password)
+            } else {
+                let missingInfoAlert = UIAlertController(
+                    title: "Missing Information",
+                    message: "Both email and password are required to sign in.",
+                    preferredStyle: .alert
+                )
+                missingInfoAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: {[weak self] _ in self?.onSignInBarButtonTapped()}))
+                self.present(missingInfoAlert, animated: true)
             }
         })
+
         
         //MARK: Register Action...
         let registerAction = UIAlertAction(title: "Register", style: .default, handler: {(_) in
@@ -94,18 +111,30 @@ extension ViewController{
             )
         })
     }
-    func signInToFirebase(email: String, password: String){
-        showActivityIndicator()
-        //MARK: authenticating the user...
-        Auth.auth().signIn(withEmail: email, password: password, completion: {(result, error) in
-            if error == nil{
-                //MARK: user authenticated...
+    
+    
+    func signInToFirebase(email: String, password: String) {
+            showActivityIndicator()
+            Auth.auth().signIn(withEmail: email, password: password, completion: { [weak self] (result, error) in
+                guard let self = self else { return }
                 self.hideActivityIndicator()
-            }else{
-                //MARK: alert that no user found or password wrong...
-            }
-        })
-    }
+
+                if error == nil {
+                    // User authenticated...
+                } else {
+                    // Alert for incorrect credentials...
+                    let wrongInfoAlert = UIAlertController(
+                        title: "No User Found",
+                        message: "No User Found or Wrong Email/Password.",
+                        preferredStyle: .alert
+                    )
+                    wrongInfoAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+                        self?.showSignInAlert()
+                    }))
+                    self.present(wrongInfoAlert, animated: true)
+                }
+            })
+        }
     
     @objc func onTapOutsideAlert(){
         self.dismiss(animated: true)
