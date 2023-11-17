@@ -76,15 +76,16 @@ class ChatsTableViewCell: UITableViewCell {
             labelFriend.heightAnchor.constraint(equalToConstant: 20),
             labelFriend.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor),
             
-            labelMessage.topAnchor.constraint(equalTo: labelFriend.bottomAnchor, constant: 2),
-            labelMessage.leadingAnchor.constraint(equalTo: labelFriend.leadingAnchor),
-            labelMessage.heightAnchor.constraint(equalToConstant: 16),
-            labelMessage.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor),
-            
-            labelDateTime.topAnchor.constraint(equalTo: labelMessage.bottomAnchor, constant: 2),
+            labelDateTime.topAnchor.constraint(equalTo: labelFriend.bottomAnchor, constant: 2),
             labelDateTime.leadingAnchor.constraint(equalTo: labelFriend.leadingAnchor),
             labelDateTime.heightAnchor.constraint(equalToConstant: 16),
             labelDateTime.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor),
+            
+            labelMessage.topAnchor.constraint(equalTo: labelDateTime.bottomAnchor, constant: 2),
+            labelMessage.leadingAnchor.constraint(equalTo: labelFriend.leadingAnchor),
+            labelMessage.heightAnchor.constraint(equalToConstant: 16),
+            labelMessage.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor),
+
             
             wrapperCellView.heightAnchor.constraint(equalToConstant: 72)
         ])

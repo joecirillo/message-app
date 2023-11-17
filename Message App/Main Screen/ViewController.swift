@@ -57,10 +57,8 @@ class ViewController: UIViewController {
                             }catch{
                                 print(error)
                             }
-                            print(self.activeChats)
-                            print(self.activeChats.count)
                         }
-                 //       self.activeChats.sort(by: {$0.userChatting.name < $1.userChatting.name})
+                        self.activeChats.sort(by: {$0.userChatting < $1.userChatting})
                         self.mainScreen.tableViewChats.reloadData()
                     }
                 })
@@ -70,7 +68,6 @@ class ViewController: UIViewController {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         let details = self.activeChats[indexPath.row]
         let messageViewController = MessageViewController()
         messageViewController.userChatting = details.userChatting
@@ -95,9 +92,9 @@ class ViewController: UIViewController {
         mainScreen.tableViewChats.separatorStyle = .none
         
         mainScreen.floatingButtonNewChat.addTarget(self, action: #selector(newChatButtonTapped), for: .touchUpInside)
-        //MARK: print(mainScreen.tableViewChats.numberOfSections)
         view.bringSubviewToFront(mainScreen.floatingButtonNewChat)
     }
+
     @objc func newChatButtonTapped(){
         let newChatController = NewChatViewController()
         newChatController.currentUser = self.currentUser

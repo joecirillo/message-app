@@ -8,16 +8,19 @@
 import UIKit
 
 class MessageTableViewCell: UITableViewCell {
-    var wrapperCellView: UIView!
-    var isSender: Bool?
-    var labelMessage: UILabel!
-    
+    var wrapperReceivedCellView: UIView!
+    var wrapperSentCellView: UIView!
+    var isSender: Bool!
+    var labelReceived: UILabel!
+    var labelSent: UILabel!
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        setupWrapperCellView()
-        setupLabelMessage()
-
+        setupWrapperReceivedCellView()
+        setupWrapperSentCellView()
+        setupLabelReceived()
+        setupLabelSent()
         initConstraints()
     }
     
@@ -25,53 +28,87 @@ class MessageTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupWrapperCellView(){
-        wrapperCellView = UITableViewCell()
+    func setupWrapperReceivedCellView(){
+        wrapperReceivedCellView = UITableViewCell()
         
         //working with the shadows and colors...
-        wrapperCellView.backgroundColor = .white
-        wrapperCellView.layer.cornerRadius = 6.0
-        wrapperCellView.layer.shadowColor = UIColor.gray.cgColor
-        wrapperCellView.layer.shadowOffset = .zero
-        wrapperCellView.layer.shadowRadius = 4.0
-        wrapperCellView.layer.shadowOpacity = 0.4
-        wrapperCellView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(wrapperCellView)
+        wrapperReceivedCellView.backgroundColor = .white
+        wrapperReceivedCellView.layer.cornerRadius = 6.0
+        wrapperReceivedCellView.layer.shadowColor = UIColor.gray.cgColor
+        wrapperReceivedCellView.layer.shadowOffset = .zero
+        wrapperReceivedCellView.layer.shadowRadius = 4.0
+        wrapperReceivedCellView.layer.shadowOpacity = 0.4
+        wrapperReceivedCellView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(wrapperReceivedCellView)
+    }
+    func setupWrapperSentCellView(){
+        wrapperSentCellView = UITableViewCell()
+        
+        //working with the shadows and colors...
+        wrapperSentCellView.backgroundColor = .systemBlue
+        wrapperSentCellView.layer.cornerRadius = 6.0
+        wrapperSentCellView.layer.shadowColor = UIColor.gray.cgColor
+        wrapperSentCellView.layer.shadowOffset = .zero
+        wrapperSentCellView.layer.shadowRadius = 4.0
+        wrapperSentCellView.layer.shadowOpacity = 0.4
+        wrapperSentCellView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(wrapperSentCellView)
     }
     
-    func setupLabelMessage(){
-        labelMessage = UILabel()
-        labelMessage.font = UIFont.boldSystemFont(ofSize: 14)
-        labelMessage.translatesAutoresizingMaskIntoConstraints = false
-        wrapperCellView.addSubview(labelMessage)
+    func setupLabelReceived(){
+        labelReceived = UILabel()
+        labelReceived.textAlignment = .center
+        labelReceived.font = UIFont.boldSystemFont(ofSize: 16)
+        labelReceived.adjustsFontSizeToFitWidth = true
+        labelReceived.translatesAutoresizingMaskIntoConstraints = false
+        wrapperReceivedCellView.addSubview(labelReceived)
+    }
+    
+    func setupLabelSent() {
+        labelSent = UILabel()
+        labelSent.textAlignment = .center
+        labelSent.font = UIFont.boldSystemFont(ofSize: 16)
+        labelSent.textColor = .white
+        labelSent.adjustsFontSizeToFitWidth = true
+        labelSent.translatesAutoresizingMaskIntoConstraints = false
+        wrapperSentCellView.addSubview(labelSent)
     }
     
     func initConstraints(){
         NSLayoutConstraint.activate([
-            wrapperCellView.topAnchor.constraint(equalTo: self.topAnchor,constant: 10),
-            wrapperCellView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            wrapperCellView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
-            wrapperCellView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            wrapperReceivedCellView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            wrapperReceivedCellView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
+            wrapperReceivedCellView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
+            wrapperReceivedCellView.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -48),
+            wrapperReceivedCellView.heightAnchor.constraint(equalToConstant: 24),
 
-            labelMessage.topAnchor.constraint(equalTo: wrapperCellView.topAnchor, constant: 2),
-            labelMessage.leadingAnchor.constraint(equalTo: wrapperCellView.leadingAnchor, constant: isSender! ? 16 : 0),
-            labelMessage.trailingAnchor.constraint(equalTo: wrapperCellView.trailingAnchor, constant: isSender! ? 0 : -16),
-            labelMessage.heightAnchor.constraint(equalToConstant: 16),
-            labelMessage.widthAnchor.constraint(lessThanOrEqualTo: wrapperCellView.widthAnchor, constant: 16),
+            wrapperSentCellView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            wrapperSentCellView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -10),
+            wrapperSentCellView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10),
+            wrapperSentCellView.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -48),
+            wrapperSentCellView.heightAnchor.constraint(equalToConstant: 24),
 
-            wrapperCellView.heightAnchor.constraint(equalToConstant: 72)
+            labelReceived.topAnchor.constraint(equalTo: wrapperReceivedCellView.topAnchor, constant: 5),
+            labelReceived.leadingAnchor.constraint(equalTo: wrapperReceivedCellView.leadingAnchor, constant: 5),
+            labelReceived.widthAnchor.constraint(lessThanOrEqualTo: wrapperReceivedCellView.widthAnchor),
+            labelReceived.heightAnchor.constraint(lessThanOrEqualTo: wrapperReceivedCellView.heightAnchor),
+
+            labelSent.topAnchor.constraint(equalTo: wrapperSentCellView.topAnchor, constant: 5),
+            labelSent.leadingAnchor.constraint(equalTo: wrapperSentCellView.leadingAnchor, constant: 5),
+            labelSent.widthAnchor.constraint(lessThanOrEqualTo: wrapperSentCellView.widthAnchor),
+            labelSent.heightAnchor.constraint(lessThanOrEqualTo: wrapperSentCellView.heightAnchor),
         ])
     }
-
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+ 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+ 
         // Configure the view for the selected state
     }
-
+ 
 }

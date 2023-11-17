@@ -19,15 +19,7 @@ class MessageView: UIView {
         setupTableViewMessages()
         setupMessageTextField()
         setupSendButton()
-        /*
-        if self.tableViewMessages.numberOfSections > 0 {
-            tableViewMessages.scrollToRow(//MARK: numberOfSections could be cause if there is an issue
-                at: IndexPath(row: self.tableViewMessages.numberOfSections-1, section: 0),
-                at: UITableView.ScrollPosition.bottom,
-                animated: false);
-        }
-         */
-        
+
         initConstraints()
     }
     
@@ -67,24 +59,20 @@ class MessageView: UIView {
     
     func initConstraints(){
         NSLayoutConstraint.activate([
-//
-//            scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-//            scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-//            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-//            scrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -60),
-//            
             tableViewMessages.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8),
-            tableViewMessages.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 8),
+            tableViewMessages.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -72),
             tableViewMessages.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 16),
             tableViewMessages.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -16),
             
             messageTextField.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             messageTextField.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            messageTextField.topAnchor.constraint(equalTo: tableViewMessages.bottomAnchor, constant: 10),
             messageTextField.heightAnchor.constraint(equalToConstant: 40),
             messageTextField.trailingAnchor.constraint(equalTo: sendButton.leadingAnchor, constant: -10),
                         
             sendButton.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             sendButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            sendButton.topAnchor.constraint(equalTo: tableViewMessages.bottomAnchor, constant: -10),
             sendButton.widthAnchor.constraint(equalToConstant: 40),
             sendButton.heightAnchor.constraint(equalToConstant: 40)
                                  

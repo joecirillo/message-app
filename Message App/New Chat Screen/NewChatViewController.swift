@@ -85,8 +85,6 @@ class NewChatViewController: UIViewController {
                     if error == nil{
                         self.navigationController?.popViewController(animated: true)
                         self.hideActivityIndicator()
-                        print("success")
-                        print(userEmail)
                     }
                 })
             }catch{

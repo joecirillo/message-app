@@ -11,33 +11,33 @@ import FirebaseFirestore
 
 extension MessageViewController{
     func addMessageDocumentForChat(message: String, userChatting: String, currentUser: String) {
-        let db = Firestore.firestore()
-        let chatRef = db.collection("users").document(currentUser).collection("chats").document(userChatting)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
 
-        let messageData: [String: Any] = [
-            "message": message,
-        ]
+        let formattedDate = dateFormatter.string(from: Date())
 
-        chatRef.setData(messageData) { error in
-            if let error = error {
-                print("Error adding document for user: \(error.localizedDescription)")
-            } else {
+        let sentMessage = Message(isSender: true, dateTime: formattedDate, text: message)
+
+        let collectionMessages = self.database.collection("users").document(currentUser).collection("chats").document(userChatting).collection("messages")
+        do{
+            try collectionMessages.addDocument(from: sentMessage, completion: {(error) in
                 print("Document added for user with UID: \(message)")
-            }
+            })
+        }catch{
+            print("Error adding document!")
         }
         
-        let chatRefUserChatting = db.collection("users").document(userChatting).collection("chats").document(currentUser)
 
-        let messageDataUserChatting: [String: Any] = [
-            "message": message,
-        ]
+        let receivedMessage = Message(isSender: false, dateTime: formattedDate, text: message)
 
-        chatRef.setData(messageDataUserChatting) { error in
-            if let error = error {
-                print("Error adding document for user: \(error.localizedDescription)")
-            } else {
+        let collectionReceiverMessages = self.database.collection("users").document(userChatting).collection("chats").document(currentUser).collection("messages")
+        do{
+            try collectionReceiverMessages.addDocument(from: receivedMessage, completion: {(error) in
                 print("Document added for user with UID: \(message)")
-            }
+            })
+        }catch{
+            print("Error adding document!")
         }
     }
 }
