@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var handleAuth: AuthStateDidChangeListenerHandle?
     var currentUser: FirebaseAuth.User?
     let childProgressView = ProgressSpinnerViewController()
+    let notificationCenter = NotificationCenter.default
 
     override func loadView(){
         view = mainScreen

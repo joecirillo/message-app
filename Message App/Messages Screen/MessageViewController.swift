@@ -9,7 +9,6 @@ class MessageViewController: UIViewController {
     var userChatting:String?
     var currentUser:String?
     let database = Firestore.firestore()
-    let notificationCenter = NotificationCenter.default
     
     override func loadView() {
         view = messageScreen
@@ -36,6 +35,7 @@ class MessageViewController: UIViewController {
                 }
                 self.messages.sort(by: {$0.dateTime < $1.dateTime})
                 self.messageScreen.tableViewMessages.reloadData()
+                self.scrollToBottom()
             }
         })
     }
@@ -45,7 +45,7 @@ class MessageViewController: UIViewController {
  
         // Do any additional setup after loading the view.
         title = userChatting
-        
+
         navigationController?.navigationBar.prefersLargeTitles = true
         //MARK: patching table view delegate and data source...
         messageScreen.tableViewMessages.delegate = self
@@ -54,13 +54,12 @@ class MessageViewController: UIViewController {
         //MARK: removing the separator line...
         messageScreen.tableViewMessages.separatorStyle = .none
         messageScreen.sendButton.addTarget(self, action: #selector(onSendButtonTapped), for: .touchUpInside)
-        scrollToBottom()
+        messageScreen.tableViewMessages.reloadData()
     }
+    
     func scrollToBottom() {
         let numberOfSections = messageScreen.tableViewMessages.numberOfSections
         let numberOfRows = messageScreen.tableViewMessages.numberOfRows(inSection: numberOfSections - 1)
-        print(numberOfSections)
-        print("number of rows: ", numberOfRows)
         if numberOfRows > 0 {
             let indexPath = IndexPath(row: numberOfRows - 1, section: numberOfSections - 1)
             messageScreen.tableViewMessages.scrollToRow(
@@ -76,11 +75,7 @@ class MessageViewController: UIViewController {
                 self.addMessageDocumentForChat(message: message, userChatting: self.userChatting!, currentUser: self.currentUser!)
                 messageScreen.messageTextField.text = ""
                 messageScreen.tableViewMessages.reloadData()
-                //MARK: update chat tableview to show latest message details
-//                notificationCenter.post(
-//                                name: Notification.Name("messageSent"),
-//                                object: "")
-                            
+
                 scrollToBottom()
             }
         }

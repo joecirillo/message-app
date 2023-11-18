@@ -19,7 +19,6 @@ class MessageView: UIView {
         setupTableViewMessages()
         setupMessageTextField()
         setupSendButton()
-
         initConstraints()
     }
     
